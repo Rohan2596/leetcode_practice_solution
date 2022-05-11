@@ -34,4 +34,15 @@ package easy;
  * The elements in nums are distinct.
  * */
 public class BuildArrayFromPermutation {
+
+    public static void main(String[] args) {
+        int [] nums= new int []{0,2,1,5,3,4};
+        int [] ans= new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            ans[i]=nums[nums[i]];
+        }
+        for (int element:ans) {
+            System.out.print(" "+element);
+        }
+    }
 }
