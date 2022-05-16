@@ -34,7 +34,20 @@ package easy;
  * **/
 public class EvenNumberofDigits {
     public static void main(String[] args) {
-        int[] nums = new int[]{12,345,2,6,7896};
+        int[] nums = new int[]{555,901,482,1771};
+        int count=0;
+
+        for (int element:nums) {
+            int value=0;
+            while (element>0){
+                value=value+1;
+                element=element/10;
+            }
+            if(value%2==0){
+                count=count+1;
+            }
+        }
+        System.out.println(count);
 
 
     }
