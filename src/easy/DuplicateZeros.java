@@ -1,5 +1,7 @@
 package easy;
 
+import java.util.Arrays;
+
 /**
  * ****************************
  * ****Problem Statement*******
@@ -41,6 +43,25 @@ package easy;
 public class DuplicateZeros {
 
     public static void main(String[] args) {
+        int[] arr = new int[]{1,0,2,3,0,4,5,0};
+        int[] zeros= new int[arr.length];
+        int length= arr.length;
+        int k=0;
+        for (int i = 0; i < length; i++) {
+            if(arr[i]!=0){
+                zeros[k]=arr[i];
+                k++;
+            }
+            if(arr[i]==0){
+                zeros[k]=arr[i];
+                zeros[k++]=0;
+                length--;
+                k++;
+            }
 
+        }
+        arr= new int[arr.length];
+      arr=Arrays.copyOf(zeros,arr.length);
+      Arrays.stream(arr).forEach(System.out::println);
     }
 }
