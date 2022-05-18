@@ -60,8 +60,8 @@ public class DuplicateZeros {
             }
 
         }
-        arr= new int[arr.length];
-      arr=Arrays.copyOf(zeros,arr.length);
-      Arrays.stream(arr).forEach(System.out::println);
+        for (int i = 0; i < zeros.length; i++) {
+            arr[i]=zeros[i];
+        }
     }
 }
