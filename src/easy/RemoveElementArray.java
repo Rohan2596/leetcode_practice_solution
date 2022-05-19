@@ -60,6 +60,21 @@ package easy;
 public class RemoveElementArray {
 
     public static void main(String[] args) {
+        int [] nums=new int[]{0,1,2,2,3,0,4,2};
+        int[] zeros= new int[nums.length];
+        int val=2;
+        int count=0;
+        for (int element:nums) {
+            if(element!=val){
+                zeros[count]=element;
+                count++;
 
+            }
+        }
+
+        for (int i = 0; i < zeros.length; i++) {
+            nums[i]=zeros[i];
+        }
+        System.out.println(count);
     }
 }
