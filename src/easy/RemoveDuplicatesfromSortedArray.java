@@ -1,5 +1,8 @@
 package easy;
 
+import java.util.Arrays;
+import java.util.HashMap;
+
 /**
  * ******************************
  * ***** Problem Statement ******
@@ -60,6 +63,35 @@ package easy;
 public class RemoveDuplicatesfromSortedArray {
 
     public static void main(String[] args) {
+
+        int [] nums=new int[]{-3,-1,0,0,0,3,3};
+
+        HashMap<Integer,Integer> hashMap= new HashMap<>();
+        for (int element:nums) {
+            if(hashMap.isEmpty()){
+                hashMap.put(element,1);
+            }
+            if(!hashMap.containsKey(element)){
+                hashMap.put(element,1);
+            }
+        }
+
+        hashMap.keySet().stream();
+       int size= hashMap.keySet().size();
+        System.out.println(size);
+        int[] zeros= new int[size];
+       int i=0;
+        for (int value:hashMap.keySet()) {
+            zeros[i]= value;
+            i++;
+        }
+        zeros= Arrays.stream(zeros).sorted().toArray();
+        for (int j = 0; j < zeros.length; j++) {
+            nums[j]=zeros[j];
+        }
+
+        Arrays.stream(zeros).forEach(System.out::println);
+
 
     }
 }
