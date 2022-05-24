@@ -1,5 +1,7 @@
 package easy;
 
+import java.util.Arrays;
+
 /**
  * ***************************
  * *****Problem Statement*****
@@ -38,4 +40,22 @@ package easy;
 
 
 public class ReplaceElementsWithGreatestElementOnRightSide {
+
+    public static void main(String[] args) {
+        int arr[] = new int[]{17, 18, 5, 4, 6, 1};
+
+        for (int i = 1; i < arr.length; i++) {
+            int max = arr[i];
+            for (int j = i ; j < arr.length; j++) {
+                if (max < arr[j]) {
+                    max=arr[j];
+                }
+
+            }
+            arr[(i-1)] = max;
+        }
+        arr[arr.length-1]=-1;
+        Arrays.stream(arr).forEach(System.out::println);
+    }
+
 }
