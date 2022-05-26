@@ -1,5 +1,7 @@
 package easy;
 
+import java.util.Arrays;
+
 /**
  * ******************************
  * ***Problem Statement *********
@@ -47,6 +49,18 @@ package easy;
 
 public class HeightChecker {
     public static void main(String[] args) {
+         int heights[]= new int[]{5,1,2,3,4};
+        int sortedHeight[]= new int[heights.length];
+         int count=0;
+        sortedHeight=Arrays.stream(heights).sorted().toArray();
 
+
+        for (int i = 0; i < heights.length; i++) {
+            if(heights[i]!=sortedHeight[i]){
+                count=count+1;
+            }
+        }
+        System.out.println(count);
     }
+
 }
