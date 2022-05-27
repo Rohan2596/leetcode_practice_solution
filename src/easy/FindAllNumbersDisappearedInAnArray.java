@@ -1,4 +1,9 @@
 package easy;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * *******************************
  * ******* Problem Statement *****
@@ -25,6 +30,23 @@ package easy;
  * */
 public class FindAllNumbersDisappearedInAnArray {
     public static void main(String[] args) {
+        int [] nums= new int[]{1,1};
+        List<Integer> disappeared=new ArrayList<>();
+        int start= 1;
+        while (start<=nums.length){
+            boolean check= true;
+            for (int num:nums) {
+                if(start==num){
+                    check=false;
+                }
+            }
+            if(check){
+                disappeared.add(start);
+            }
+            start++;
+        }
+
+        disappeared.stream().forEach(System.out::println);
 
     }
 }
