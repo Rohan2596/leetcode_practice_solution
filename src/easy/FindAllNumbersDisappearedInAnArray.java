@@ -31,8 +31,9 @@ import java.util.List;
 public class FindAllNumbersDisappearedInAnArray {
     public static void main(String[] args) {
         int [] nums= new int[]{1,1};
-        List<Integer> disappeared=new ArrayList<>();
+        List disappeared=new ArrayList<>();
         int start= 1;
+       nums= Arrays.stream(nums).sorted().toArray();
         while (start<=nums.length){
             boolean check= true;
             for (int num:nums) {
@@ -40,7 +41,7 @@ public class FindAllNumbersDisappearedInAnArray {
                     check=false;
                 }
             }
-            if(check){
+            if(check ){
                 disappeared.add(start);
             }
             start++;
