@@ -37,6 +37,7 @@ package easy;
 public class GoalParserInterpretation {
 
     public static void main(String[] args) {
+        //Test Command
         String command = "(al)G(al)()()G";
         char[] chars = command.toCharArray();
         StringBuilder stringBuilder = new StringBuilder("");
@@ -47,7 +48,6 @@ public class GoalParserInterpretation {
             if (chars[i] == '(') {
                 if (chars[(i + 1)] == ')') {
                     stringBuilder.append('o');
-
                 }
                 if (chars[(i + 1)] == 'a') {
                     stringBuilder.append("al");
