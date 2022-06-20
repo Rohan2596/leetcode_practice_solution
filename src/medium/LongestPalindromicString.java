@@ -1,4 +1,5 @@
 package medium;
+
 /***
  * -------------------------------------------------
  * ----------- Problem Statement -----------
@@ -22,40 +23,43 @@ package medium;
  */
 
 
-
 public class LongestPalindromicString {
     public static void main(String[] args) {
-        String s = "ccc";
+        String s = "aaca";
         char[] chars = s.toCharArray();
-        int max=0;
-        String maxString="";
-        for (int i = 0; i < chars.length; i++) {
-            StringBuilder builder = new StringBuilder("");
-            builder.append(chars[i]);
-            for (int j = i+1; j < chars.length; j++) {
-                builder.append(chars[j]);
-                String currentString= builder.toString();
-                String reverseString=builder.reverse().toString();
-                if(currentString.equals(reverseString)){
-                    if(max<currentString.length()){
-                        max=currentString.length();
-                        maxString=currentString;
+        int max = 0;
+        String maxString = "";
+
+        if (chars.length >= 2) {
+            for (int i = 0; i < chars.length; i++) {
+                StringBuilder builder = new StringBuilder("");
+                builder.append(chars[i]);
+                int j = i + 1;
+                while (j < chars.length) {
+                    if (chars[i] != chars[j]) {
+                        builder.append(chars[j]);
                     }
-                }
-                builder=new StringBuilder(currentString);
-            }
-            if(max==0){
-                String currentString= builder.toString();
-                String reverseString=builder.reverse().toString();
-                if(currentString.equals(reverseString)){
-                    if(max<currentString.length()){
-                        max=currentString.length();
-                        maxString=currentString;
+                    if (chars[i] == chars[j]) {
+                        builder.append(chars[j]);
+                        String currentString = builder.toString();
+                        String reverseString = new StringBuilder(builder).reverse().toString();
+                        if (currentString.equals(reverseString)) {
+                            if (max < reverseString.length()) {
+                                max = reverseString.length();
+                                maxString = reverseString;
+                            }
+                        }
+                        builder = new StringBuilder(currentString);
                     }
+                    j++;
                 }
-                builder=new StringBuilder(currentString);
             }
+            if (max == 0) {
+                maxString = String.valueOf(chars[0]);
+            }
+        } else {
+            maxString = s;
         }
-        System.out.println(max);
+        System.out.println(maxString);
     }
 }
