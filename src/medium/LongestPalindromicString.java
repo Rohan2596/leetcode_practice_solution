@@ -29,7 +29,6 @@ public class LongestPalindromicString {
         char[] chars = s.toCharArray();
         int max = 0;
         String maxString = "";
-
         if (chars.length >= 2) {
             for (int i = 0; i < chars.length; i++) {
                 StringBuilder builder = new StringBuilder("");
