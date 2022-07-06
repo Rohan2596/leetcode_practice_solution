@@ -1,5 +1,7 @@
 package easy;
 
+import java.util.Arrays;
+
 /**
  * *****************************
  * **** Problem Statement ****
@@ -48,6 +50,39 @@ package easy;
 public class PlusOne {
 
     public static void main(String[] args) {
+
+        int[] digits={9,8,7,6,5,4,3,2,1,0};
+        StringBuilder builder= new StringBuilder("");
+        for (int i = 0; i < digits.length; i++) {
+              builder.append(digits[i]);
+        }
+        Long value = Long.parseLong(String.valueOf(builder)) + 1;
+
+        System.out.println(value);
+        int size=String.valueOf(value).length();
+        int[] newDigits= new int[size];
+        int i =(size-1);
+        System.out.println(size);
+        while (value>0 && i>=0){
+            newDigits[i]= (int) (value%10);
+            value=value/10;
+
+            i--;
+        }
+
+        Arrays.stream(newDigits).forEach(System.out::print);
+
+
+
+
+
+//        int [] newDigits=new int[value.length()];
+//
+//        for (int i = 0; i < value.length(); i++) {
+//            newDigits[i]= value;
+//            System.out.println(newDigits[i]);
+//        }
+
 
     }
 }
