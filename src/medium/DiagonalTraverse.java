@@ -1,6 +1,7 @@
 package medium;
 
-import java.util.Arrays;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /***
  *************************************
@@ -33,23 +34,39 @@ public class DiagonalTraverse {
     public static void main(String[] args) {
 
         int[][] mat={{1,2,3},{4,5,6},{7,8,9}};
-       // int[][] mat= {{1,2},{3,4}};
+      //  int[][] mat= {{1,2},{3,4}};
         int m= mat.length;
         int n=mat.length;
         int [] trans= new int[m*n];
-        // 0*0  1*1 2*2
-        //  0+0  +4   4
- int k=0;
+        Map<Integer, List<Integer>> diagonals = new HashMap<>();
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                System.out.println( "i:- "+ i +" j:- "+ j +" == " +mat[i][j]);
-                if(i==j){
-                    System.out.println((i*j)*4);
-                    int value= (i*j)*m;
-                    trans[2*((i+j)/m)]=mat[i][j];
+                if(diagonals.get((i+j))==null){
+                    List<Integer>values= new ArrayList<>();
+                    values.add(mat[i][j]);
+                    diagonals.put(i+j,values);
                 }
-               // if()
+                else{
+                    List<Integer>values= diagonals.get((i+j));
+                    values.add(mat[i][j]);
+                    diagonals.put(i+j,values);
+                }
             }
+        }
+        List<Integer> elements=new ArrayList<>();
+        for (Integer value:diagonals.keySet()) {
+            if(value % 2 == 0){
+            List<Integer> reverse= diagonals.get(value).stream()
+                        .sorted(Comparator.reverseOrder())
+                        .collect(Collectors.toList());
+                elements.addAll(reverse);
+            }else{
+                elements.addAll(diagonals.get(value));
+            }
+
+        }
+        for (int i = 0; i < elements.size(); i++) {
+              trans[i]=elements.get(i);
         }
         Arrays.stream(trans).forEach(System.out::print);
     }
