@@ -38,6 +38,37 @@ package easy;
 public class MergeTwoSortedList {
 
     public static void main(String[] args) {
+        /**
+         * Definition for singly-linked list.
+         * public class ListNode {
+         *     int val;
+         *     ListNode next;
+         *     ListNode() {}
+         *     ListNode(int val) { this.val = val; }
+         *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+         * }
 
+//        class Solution {
+//            public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+//                List<Integer> mergeList=new ArrayList<>();
+//                while(list1!=null ){
+//                    mergeList.add(list1.val);
+//                    list1=list1.next;
+//                }
+//                while(list2!=null ){
+//                    mergeList.add(list2.val);
+//                    list2=list2.next;
+//                }
+//                ListNode merge=new ListNode(0,null);
+//                ListNode node=merge;
+//                mergeList=mergeList.stream().sorted().collect(Collectors.toList());
+//                for (int value: mergeList){
+//                    node.next = new ListNode(value,null);
+//                    node = node.next;
+//                }
+//                return merge.next;
+//              }
+         // }
+**/
     }
 }
