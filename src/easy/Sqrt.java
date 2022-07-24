@@ -37,17 +37,17 @@ import java.util.Arrays;
 * */
 public class Sqrt {
     public static void main(String[] args) {
-        int x= 8;
-        int roots[]= new int[x];
+        int x= 2147395600;
+
         int root=0;
-        for (int i = 0; i < roots.length; i++) {
-            roots[i]=i;
+        for (int i = 0; i < x/2; i++) {
             int value= i*i;
             if(value<=x){
                 root=i;
             }
             if(x==1 || x==2){
-                root=x;
+                root=1;
+                break;
             }
 
             if(value>x){
