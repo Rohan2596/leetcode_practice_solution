@@ -1,5 +1,8 @@
 package easy;
 
+import java.util.Iterator;
+import java.util.Stack;
+
 /**
  * Problem Statement
  * Given an integer x, return true if x is palindrome integer.
@@ -33,6 +36,20 @@ package easy;
 public class PalindromeNumber {
 
     public static void main(String[] args) {
-
+     int x= 10;
+     Stack<Character> characterStack = new Stack<>();
+     String value=String.valueOf(x);
+        for (char ch:value.toCharArray()) {
+            characterStack.push(ch);
+        }
+        StringBuilder builder= new StringBuilder("");
+        Iterator iterator= characterStack.iterator();
+        while (iterator.hasNext()){
+            builder.append(characterStack.pop());
+        }
+        if(builder.toString().equalsIgnoreCase(value)){
+            System.out.println(true);
+        }
+        System.out.println(false);
     }
 }
