@@ -1,5 +1,8 @@
 package easy;
 
+import java.util.Stack;
+import java.util.stream.Collectors;
+
 /**
  * ***********************************
  * **** Problem Statement ****
@@ -72,6 +75,33 @@ package easy;
 public class BaseBallGame {
 
     public static void main(String[] args) {
+        String [] ops={"5","2","C","D","+"};
+        Stack<String> stack= new Stack<>();
+
+        for (String score:ops) {
+
+            if(score.equalsIgnoreCase("C")){
+                stack.pop();
+            }
+            if(score.equalsIgnoreCase("D")){
+                int value = 2* Integer.parseInt(stack.peek());
+                stack.push(String.valueOf(value));
+            }
+            if(score.equalsIgnoreCase("+")){
+                  int value1= Integer.parseInt(stack.peek());
+                  stack.pop();
+                  int value2= Integer.parseInt(stack.peek());
+                  stack.push(String.valueOf(value1));
+                  stack.push(String.valueOf(value1+value2));
+            }
+            if(!score.equalsIgnoreCase("C") && !score.equalsIgnoreCase("D")
+                    && !score.equalsIgnoreCase("+")){
+                stack.push(score);
+            }
+        }
+
+        int value=stack.stream().mapToInt(Integer::valueOf).sum();
+        System.out.println(value);
 
     }
 }
